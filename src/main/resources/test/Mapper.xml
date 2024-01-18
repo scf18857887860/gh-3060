@@ -13,4 +13,8 @@
     insert into users (id, name) values (#{id}, #{name})
   </insert>
 
+
+  <select id="queryListByDynamicSql" resultType="java.util.LinkedHashMap" parameterType="cn.hutool.json.JSONObject">
+    ${__sql__}
+  </select>
 </mapper>
