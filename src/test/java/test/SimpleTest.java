@@ -75,7 +75,7 @@ public class SimpleTest {
     }
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       Mapper mapper = sqlSession.getMapper(Mapper.class);
-      String sql="select case when name='aaa[张三]' then 1 else 0 end as 'aaa[张三]' from users limit 1" ;
+      String sql="select case when name='aaa[张三]' then 1 else 0 end as \"aaa[张三]\" from users limit 1" ;
       JSONObject jsonObject=new JSONObject();
       jsonObject.putIfAbsent("__sql__",sql);
       List<LinkedHashMap<String, ?>> linkedHashMaps = mapper.queryListByDynamicSql(jsonObject);
